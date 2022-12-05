@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr" style="height: 100%;">
+<head>
+    <meta charset="utf-8">
+    <title>map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="script/leaflet/leaflet.css"/>
+    <script src="script/leaflet/leaflet.js"></script>
+    <script src="script/leaflet/leaflet.browser.print.min.js"></script>
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body style="height: 100%;">
+    <div id="carteTab">
+        <a class="item active" data-tab="iconesTab" onclick="toggleTab(this)">Marqueurs</a>
+        <a class="item" data-tab="pokemonTab" onclick="toggleTab(this)">Pokémon</a>
+    </div>
+    <div class="tab active" data-tab="iconesTab">
+        <div id="markersList">
+            <div class="popupPokemon" onclick="toggleLayer('layPokeball',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/pokeball_a.png" alt="Pokéball">
+                </div>
+                <p class="popupName">Rencontres sauvages</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layScarlet',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/pokeball_b.png"  alt="Pokéball">
+                </div>
+                <p class="popupName">Rencontres sur Écarlate</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layViolet',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/pokeball_c.png"  alt="Pokéball">
+                </div>
+                <p class="popupName">Rencontres sur Violet</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('laySymbol',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/pokeball2.png"  alt="Pokéball">
+                </div>
+                <p class="popupName">Rencontres fixes</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layTera',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/teracristal.png"  alt="Téracristal">
+                </div>
+                <p class="popupName">Rencontres de Téracristal</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layChest',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/mordudor.png"  alt="Mordudor forme coffre">
+                </div>
+                <p class="popupName">Mordudor Forme Coffre</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layCoin',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/mordudormarche.png"  alt="Mordudor forme marche">
+                </div>
+                <p class="popupName">Mordudor Forme Marche</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layTrainer',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/dresseurs.png"  alt="Dresseur">
+                </div>
+                <p class="popupName">Dresseurs</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layTinglu',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/dinglu.png"  alt="Dinglu">
+                </div>
+                <p class="popupName">Pieux de Dinglu</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layWochien',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/chongjian.png"  alt="Chongjian">
+                </div>
+                <p class="popupName">Pieux de Chongjian</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layChienpao',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/baojian.png"  alt="Baojian">
+                </div>
+                <p class="popupName">Pieux de Baojian</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layChiyu',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/yuyu.png"  alt="Yuyu">
+                </div>
+                <p class="popupName">Pieux de Yuyu</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layFly',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/vol.png"  alt="Vol">
+                </div>
+                <p class="popupName">Points de vol</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layGym',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/arene.png"  alt="Arène">
+                </div>
+                <p class="popupName">La voie du Maître</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layStardust',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/etoile.png"  alt="Étoile">
+                </div>
+                <p class="popupName">★ Objectif Stardust ★</p>
+            </div>
+            <div class="popupPokemon" onclick="toggleLayer('layTitan',map,this);">
+                <div class="popupImg">
+                    <img src="./markers/titan.png"  alt="Dominant">
+                </div>
+                <p class="popupName">Un parfum de légende</p>
+            </div>
+        </div>
+    </div>
+    <div class="tab" data-tab="pokemonTab">
+        <div id="pokemonList"></div>
+    </div>
+
+    <div id="map" style="width: 100%; height: 100%;"></div>
+</body>
+</html>
