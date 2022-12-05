@@ -297,6 +297,8 @@ window.addEventListener("DOMContentLoaded", async (event) => {
                 for (let fix_enc of pokemon.fix_enc) {
                     L.marker(cvert(fix_enc.coords), { icon: window[fix_enc.icon] })
                         .addTo(window.layers[fix_enc.layer]);
+                    L.marker(cvert(fix_enc.coords), { icon: window[fix_enc.icon] })
+                        .addTo(window.layers[pokemon.name]);
                 }
 
                 for (let std_enc of pokemon.std_enc) {
@@ -318,12 +320,14 @@ window.addEventListener("DOMContentLoaded", async (event) => {
                     else if (std_enc.icon === "scarletIcon") icon = "gridScarletIcon";
                     else if (std_enc.icon === "violetIcon") icon = "gridVioletIcon";
                 
-                    L.marker(cvert(std_enc.coords), { icon: window[icon], pokemon: key })
+                    L.marker(cvert(std_enc.coords), { icon: window[icon] })
                         .addTo(window.layers[pokemon.name]);
                 }
                 for (let ter_enc of pokemon.ter_enc) {
                     L.marker(cvert(ter_enc.coords), { icon: window[ter_enc.icon] })
                         .addTo(window.layers[ter_enc.layer]);
+                    L.marker(cvert(ter_enc.coords), { icon: window[ter_enc.icon] })
+                        .addTo(window.layers[pokemon.name]);
                 }
             }
             
